@@ -1,2 +1,2 @@
 # semanticWEB
-Project for SemanticWEB module of HTWK Leipzig
+Project for the SemanticWEB module of HTWK Leipzig
