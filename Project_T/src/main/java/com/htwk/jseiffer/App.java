@@ -1,5 +1,7 @@
 package com.htwk.jseiffer;
 
+import com.htwk.jseiffer.poll.PollCrawler;
+
 /**
  * Hello world!
  *
@@ -10,6 +12,6 @@ public class App
     {
 
         System.out.println( "Hello World!" );
-        TerrorCrawler crawler = new TerrorCrawler(2017,2018);
+        PollCrawler poll = new PollCrawler();
     }
 }
