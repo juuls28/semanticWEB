@@ -57,22 +57,28 @@ public class ModelBuilder {
         String ns = "http://www.example.org#";
         String nsRDFS = "http://www.w3.org/2000/01/rdf-schema#";
 
-        addStatement(ns+"Poll", ns+"dateOf", "xsd:date");
-        for (Map.Entry<LocalDate, Poll> entry: map.entrySet()) {
-            //addStatement(entry.getKey().toString(), );
-        }
-        addStatement(ns+"Poll", ns+"dateOf", "xsd:date");
-        addStatement(ns+"Party", nsRDFS+"subClassOf", ns+"Poll");
-        addStatement(ns+"Party", ns+"percentageOfParty", "xsd:float");
-        addStatement(ns+"Party", ns+"name", "xsd:string");
 
+        for (Map.Entry<LocalDate, Poll> entry: map.entrySet()) {
+            String partyId = null;
+            for(Party p : entry.getValue().getOutcomes()){
+                partyId = ns+"party/"+entry.getKey().toString()+p.getName();
+                addStatement(partyId, ns+"partyName", p.getName());
+                addStatement(partyId, ns+"partyPercent", String.valueOf(p.getPercent()));
+
+                addStatement(ns+"poll/"+entry.getKey().toString(), ns+"outcomes", partyId);
+            }
+            addStatement(ns+"poll/"+entry.getKey().toString(), ns+"happenedOn", entry.getKey().toString());
+
+        }
 
 
     }
 
     public void createModel(){
+        PollCrawler polls = new PollCrawler();
         model = ModelFactory.createDefaultModel();
         this.createTerrorModel();
+        this.createPollModel(polls.getPolls());
 
 
     }

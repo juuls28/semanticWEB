@@ -20,6 +20,10 @@ public class Poll {
         outcomes.add(party);
     }
 
+    public List<Party> getOutcomes() {
+        return outcomes;
+    }
+
     @Override
     public String toString() {
         return  date +

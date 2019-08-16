@@ -37,7 +37,6 @@ public class PollCrawler {
 
     private void crawlWebsites(){
         for (int i = 0; i < urls.length; i++){
-            System.out.println(i);
             getWebsite(urls[i]);
 
         }

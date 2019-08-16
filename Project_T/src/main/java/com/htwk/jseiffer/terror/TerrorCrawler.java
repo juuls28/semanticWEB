@@ -13,14 +13,9 @@ import java.util.List;
 
 public class TerrorCrawler {
     private String url;
-    private String path;
-    private int startYear;
-    private int endYear;
-
     public TerrorCrawler(int startYear, int endYear) {
-        this.startYear = startYear;
-        this.endYear = endYear;
-        this. url ="https://www.start.umd.edu/gtd/search/ResultsCSV.aspx?csv=1&casualties_type=b&casualties_max=&start_year="
+
+        this.url ="https://www.start.umd.edu/gtd/search/ResultsCSV.aspx?csv=1&casualties_type=b&casualties_max=&start_year="
                 + startYear
                 + "&start_month=1&start_day=1&end_year="
                 + endYear
