@@ -1,412 +1,103 @@
 package com.htwk.jseiffer.finance;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.*;
-import java.net.URL;
-import java.security.Principal;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Map;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class StockCrawler {
 
-    private String url;
-    private String cookie;
+    private String url = "https://de.finance.yahoo.com/quote/%5EGDAXI/history?period1=1534370400&period2=1565906400&interval=1d&filter=history&frequency=1d";
+
 
     public StockCrawler(LocalDate start, LocalDate end) {
-        cookie =
-        url = "https://query1.finance.yahoo.com/v7/finance/download/%5EGDAXI?period1="
+
+        url = "https://de.finance.yahoo.com/quote/%5EGDAXI/history?period1="
                 + start.atStartOfDay(ZoneId.systemDefault()).toEpochSecond()
                 + "&period2="
                 + end.atStartOfDay(ZoneId.systemDefault()).toEpochSecond()
-                + "&interval=1d&events=history&crumb=";
+                + "&interval=1d&filter=history&frequency=1d";
 
         //this.downloadCSV();
+
+
     }
 
     private void downloadCSV() {
+        Document doc;
         try {
-            String cookie = this.doGet(new HttpServletRequest() {
-                @Override
-                public String getAuthType() {
-                    return null;
-                }
-
-                @Override
-                public Cookie[] getCookies() {
-                    return new Cookie[0];
-                }
-
-                @Override
-                public long getDateHeader(String s) {
-                    return 0;
-                }
-
-                @Override
-                public String getHeader(String s) {
-                    return null;
-                }
-
-                @Override
-                public Enumeration<String> getHeaders(String s) {
-                    return null;
-                }
-
-                @Override
-                public Enumeration<String> getHeaderNames() {
-                    return null;
-                }
-
-                @Override
-                public int getIntHeader(String s) {
-                    return 0;
-                }
-
-                @Override
-                public String getMethod() {
-                    return null;
-                }
-
-                @Override
-                public String getPathInfo() {
-                    return null;
-                }
-
-                @Override
-                public String getPathTranslated() {
-                    return null;
-                }
-
-                @Override
-                public String getContextPath() {
-                    return null;
-                }
-
-                @Override
-                public String getQueryString() {
-                    return null;
-                }
-
-                @Override
-                public String getRemoteUser() {
-                    return null;
-                }
-
-                @Override
-                public boolean isUserInRole(String s) {
-                    return false;
-                }
-
-                @Override
-                public Principal getUserPrincipal() {
-                    return null;
-                }
-
-                @Override
-                public String getRequestedSessionId() {
-                    return null;
-                }
-
-                @Override
-                public String getRequestURI() {
-                    return null;
-                }
-
-                @Override
-                public StringBuffer getRequestURL() {
-                    return null;
-                }
-
-                @Override
-                public String getServletPath() {
-                    return null;
-                }
-
-                @Override
-                public HttpSession getSession(boolean b) {
-                    return null;
-                }
-
-                @Override
-                public HttpSession getSession() {
-                    return null;
-                }
-
-                @Override
-                public String changeSessionId() {
-                    return null;
-                }
-
-                @Override
-                public boolean isRequestedSessionIdValid() {
-                    return false;
-                }
-
-                @Override
-                public boolean isRequestedSessionIdFromCookie() {
-                    return false;
-                }
-
-                @Override
-                public boolean isRequestedSessionIdFromURL() {
-                    return false;
-                }
-
-                @Override
-                public boolean isRequestedSessionIdFromUrl() {
-                    return false;
-                }
-
-                @Override
-                public boolean authenticate(HttpServletResponse httpServletResponse) throws IOException, ServletException {
-                    return false;
-                }
-
-                @Override
-                public void login(String s, String s1) throws ServletException {
-
-                }
-
-                @Override
-                public void logout() throws ServletException {
-
-                }
-
-                @Override
-                public Collection<Part> getParts() throws IOException, ServletException {
-                    return null;
-                }
-
-                @Override
-                public Part getPart(String s) throws IOException, ServletException {
-                    return null;
-                }
-
-                @Override
-                public <T extends HttpUpgradeHandler> T upgrade(Class<T> aClass) throws IOException, ServletException {
-                    return null;
-                }
-
-                @Override
-                public Object getAttribute(String s) {
-                    return null;
-                }
-
-                @Override
-                public Enumeration<String> getAttributeNames() {
-                    return null;
-                }
-
-                @Override
-                public String getCharacterEncoding() {
-                    return null;
-                }
-
-                @Override
-                public void setCharacterEncoding(String s) throws UnsupportedEncodingException {
-
-                }
-
-                @Override
-                public int getContentLength() {
-                    return 0;
-                }
-
-                @Override
-                public long getContentLengthLong() {
-                    return 0;
-                }
-
-                @Override
-                public String getContentType() {
-                    return null;
-                }
-
-                @Override
-                public ServletInputStream getInputStream() throws IOException {
-                    return null;
-                }
-
-                @Override
-                public String getParameter(String s) {
-                    return null;
-                }
-
-                @Override
-                public Enumeration<String> getParameterNames() {
-                    return null;
-                }
-
-                @Override
-                public String[] getParameterValues(String s) {
-                    return new String[0];
-                }
-
-                @Override
-                public Map<String, String[]> getParameterMap() {
-                    return null;
-                }
-
-                @Override
-                public String getProtocol() {
-                    return null;
-                }
-
-                @Override
-                public String getScheme() {
-                    return null;
-                }
-
-                @Override
-                public String getServerName() {
-                    return null;
-                }
-
-                @Override
-                public int getServerPort() {
-                    return 0;
-                }
-
-                @Override
-                public BufferedReader getReader() throws IOException {
-                    return null;
-                }
-
-                @Override
-                public String getRemoteAddr() {
-                    return null;
-                }
-
-                @Override
-                public String getRemoteHost() {
-                    return null;
-                }
-
-                @Override
-                public void setAttribute(String s, Object o) {
-
-                }
-
-                @Override
-                public void removeAttribute(String s) {
-
-                }
-
-                @Override
-                public Locale getLocale() {
-                    return null;
-                }
-
-                @Override
-                public Enumeration<Locale> getLocales() {
-                    return null;
-                }
-
-                @Override
-                public boolean isSecure() {
-                    return false;
-                }
-
-                @Override
-                public RequestDispatcher getRequestDispatcher(String s) {
-                    return null;
-                }
-
-                @Override
-                public String getRealPath(String s) {
-                    return null;
-                }
-
-                @Override
-                public int getRemotePort() {
-                    return 0;
-                }
-
-                @Override
-                public String getLocalName() {
-                    return null;
-                }
-
-                @Override
-                public String getLocalAddr() {
-                    return null;
-                }
-
-                @Override
-                public int getLocalPort() {
-                    return 0;
-                }
-
-                @Override
-                public ServletContext getServletContext() {
-                    return null;
-                }
-
-                @Override
-                public AsyncContext startAsync() throws IllegalStateException {
-                    return null;
-                }
-
-                @Override
-                public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse) throws IllegalStateException {
-                    return null;
-                }
-
-                @Override
-                public boolean isAsyncStarted() {
-                    return false;
-                }
-
-                @Override
-                public boolean isAsyncSupported() {
-                    return false;
-                }
-
-                @Override
-                public AsyncContext getAsyncContext() {
-                    return null;
-                }
-
-                @Override
-                public DispatcherType getDispatcherType() {
-                    return null;
-                }
-            })
-            BufferedInputStream inputStream = new BufferedInputStream(new URL(url).openStream());
-            FileOutputStream fileOS = new FileOutputStream("data\\finance.csv");
-            byte data[] = new byte[1024];
-            int byteContent;
-            while ((byteContent = inputStream.read(data, 0, 1024)) != -1) {
-                fileOS.write(data, 0, byteContent);
+            System.out.println(url);
+            doc = Jsoup.connect(url).get();
+            //select links whose href attribute ends with "t=60"
+            //should only be one but select returns an Elements collection
+            Elements links = doc.select("a[href]"); //LINK is the unique identifier of "t=60"
+            int linksSize = links.size();
+            if (linksSize > 0) {
+                if (linksSize > 1) {
+                    System.out.println("Warning: more than one link found.  Downloading first match.");
+                }
+                Element link = links.first();
+                System.out.println(link.text());
+                //this returns an absolute URL
+                String linkUrl = link.attr("abs:href");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    public String doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
-        res.setContentType("text/html");
-        PrintWriter out = res.getWriter();
+    public List<Stock> getStocks() {
+        List<Stock> stocks = new ArrayList<>();
+        List<CSVRecord> records = null;
 
-        //Get the current session ID by searching the received cookies.
-        String cookieid = null;
-        Cookie[] cookies = req.getCookies();
+        try {
+            Reader in = new FileReader("data\\finance.csv");
+            CSVParser parser = new CSVParser(in, CSVFormat.DEFAULT);
+            records = parser.getRecords();
+            //remove Header
+            records.remove(0);
 
-        if (cookies != null) {
-            for (int i = 0; i < cookies.length; i++) {
-                if (cookies[i].getName().equals("REMOTE_USER")) {
-                    cookieid = cookies[i].getValue();
-                    break;
+            for (CSVRecord r : records){
+
+                try {
+
+                    List<String> recordList = new ArrayList<>();
+
+                    for (int i = 0; i < r.size(); i++) {
+                        if (r.get(i).trim().isEmpty()) {
+                            recordList.add("0");
+                        } else {
+                            recordList.add(r.get(i));
+                        }
+                    }
+
+                    Stock newStock = new Stock(LocalDate.parse(recordList.get(0), DateTimeFormatter.ofPattern("yyyy-MM-dd")), Double.parseDouble(recordList.get(1)));
+
+                    stocks.add(newStock);
+                }catch (Exception e){
+                    System.err.println("Formatting error");
                 }
             }
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        System.out.println("Cookie Id--" + cookieid);
-        return cookieid;
+        return stocks;
     }
+
+
+
+
 }

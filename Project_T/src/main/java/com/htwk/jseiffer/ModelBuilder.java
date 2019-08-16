@@ -1,5 +1,6 @@
 package com.htwk.jseiffer;
 
+import com.htwk.jseiffer.finance.Stock;
 import com.htwk.jseiffer.poll.Party;
 import com.htwk.jseiffer.poll.Poll;
 import com.htwk.jseiffer.poll.PollCrawler;
@@ -17,9 +18,11 @@ import java.util.Map;
 public class ModelBuilder {
     private Model model;
     private List<Terror> attacks;
+    private List<Stock> stocks;
 
-    public ModelBuilder(List<Terror> attacks) {
+    public ModelBuilder(List<Terror> attacks, List<Stock> stocks) {
         this.attacks = attacks;
+        this.stocks = stocks;
     }
 
     //Print model in turtle format
@@ -42,7 +45,6 @@ public class ModelBuilder {
 
     private void createTerrorModel(){
         String ns = "http://www.example.org#";
-        String nsRDFS = "http://www.w3.org/2000/01/rdf-schema#";
 
         for (Terror t : attacks) {
             addStatement(ns+"terror/"+t.getId(),ns+"inCity",t.getCity());
@@ -53,9 +55,17 @@ public class ModelBuilder {
         }
     }
 
+    private void createStockModel(){
+        String ns = "http://www.example.org#";
+
+        for (Stock s : stocks) {
+            addStatement(ns+"stock/"+s.getId(),ns+"happenedOn",s.getDate().toString());
+            addStatement(ns+"stock/"+s.getId(),ns+"value",String.valueOf(s.getValue()));
+        }
+    }
+
     private void createPollModel(HashMap<LocalDate, Poll> map){
         String ns = "http://www.example.org#";
-        String nsRDFS = "http://www.w3.org/2000/01/rdf-schema#";
 
 
         for (Map.Entry<LocalDate, Poll> entry: map.entrySet()) {
@@ -79,6 +89,7 @@ public class ModelBuilder {
         model = ModelFactory.createDefaultModel();
         this.createTerrorModel();
         this.createPollModel(polls.getPolls());
+        this.createStockModel();
 
 
     }
