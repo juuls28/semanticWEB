@@ -1,0 +1,118 @@
+\documentclass[a4paper,10pt,parskip]{article}
+\usepackage{graphicx}
+\usepackage{polyglossia}
+\usepackage{xcolor} 
+\usepackage{listings}
+\setdefaultlanguage[spelling=new,babelshorthands=true]{german}
+
+\usepackage{fontspec}
+\setmainfont{Source Serif Pro}
+\setsansfont{Source Sans Pro}
+
+% ------
+% Clickable URLs (optional)
+\usepackage{hyperref}
+
+\usepackage[left=2cm,right=2cm,top=3.0cm,bottom=3.0cm]{geometry}
+
+
+
+
+\title{Projektdokumentation im Modul Semantic Web -- Publikationen naturwissenschaftlicher Professoren zwischen 1980 und 1989}
+\author{Hochschule für Technik, Wirtschaft und Kultur Leipzig\\Thomas Riechert - thomas.riechert@htwk-leipzig.de}
+\date{31.08.2019}
+
+
+\begin{document}
+
+\maketitle
+
+\hyphenation{In-forma-tik}
+
+\paragraph{Recherchefragestellung: }
+Publikationen aller naturwissenschaftlichen Professoren der Universität Leipzig, welche gemeinsam mit Autoren der Bundesrepublik Deutschland in den Jahren 1980 bis 1989 publizierten.
+
+
+\section{Inhaltliche Interpretation der Fragestellung}
+
+Die Beantwortung dieser Fragestellung lässt bezieht sich im Kontext der Geschichtswissenschaften auf die Forschung im Bereich der wissenschaftliche Zusammenarbeit während der letzten 10 Jahre des kalten Krieges\footnote{Konfrontation zwischen Ost- und Westblock zwischen den Jahren 1947 und 1989}. Die Fragestellung ordnet sich in das Feld der prosopographischen Forschung, der Forschung über eine große Gruppe von Individuen in der Geschichte, ein.
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Anmerkung:} Es ist wichtig, dass Sie zu allen unten aufgeführten Punkte nachvollziehbar Ihre Ergebnisse bzw. die von Ihnen durchgeführten Aktivitäten dokumentieren. Die Länge der Dokumentation ist abhängig von der Anzahl und den Besonderheiten der einzelnen Datenquellen. Die Seitenzahl ist auf 30 Seiten begrenzt (Mindestseitenzahl 10). Sollten Sie zu keinem Ergebnis Ihrer Recherche gekommen sein, ist eine Darstellung der Probleme und möglicher Alternativen erforderlich.}
+
+\section{Relevante Datenquellen}
+
+An dieser Stelle erfolgt eine Auflistung aller relevanten Datenquellen und deren Beschreibung.
+
+\subsection{Professorenkatalog der Universität Leipzig}
+
+Die Datenbank des Professorenkatalogs ist als Linked Data Endpunkt im Web realisiert. Sie erfasst derzeit ca. 2000 Professoren, welche an der Universität Leipzig seit dem Gründungsjahr 1409 lehrten \cite{riechert_knowledge_2010}.
+
+\vspace{0.5cm}
+\begin{tabular}{l|p{9cm}}
+	Link & \url{http://catalogus-professorum.org/} \\
+ 	Datenformat & RDF, OWL \\
+ 	Schnittstelle & SPARQL, Linked Data, Dump, Rest-API \\
+ 	Lizenz & CC-SA \\
+ 	Open Data & $\star\star\star\star\star$ \\
+\end{tabular}
+
+\subsection{Bibliothekskatalog der Deutsch Nationalbibliothek}
+
+Die Deutsche Nationalbibliothek (DNB) sammelt alle deutschen Publikationen seit dem Jahr 1913. Darüber hinaus bietet sie umfangreiche Dienstleistungen für Bibliotheken und Wissenschaftler an. Mittels einer durch die DNB vergebenen Normdatensatz (GND)\footnote{Gemeinsame Normdatei} lassen sich Werke, Personen oder Körperschaften identifizieren. Diese Identifizierung ermöglicht es Personen unterschiedlicher Quellen zu verlinken.
+
+\vspace{0.5cm}
+\begin{tabular}{l|p{9cm}}
+	Link & \url{https://portal.dnb.de/} \\
+ 	Datenformat & RDF \\
+ 	Schnittstelle & Linked Data, Dump, Rest-API \\
+ 	Lizenz & CC-SA \\
+ 	Open Data & $\star\star\star\star$ \\
+\end{tabular}
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+
+\section{Vokabular}
+
+
+\section{Extraktion relevanter Daten und Import in einen Triplestore }
+
+Die Extraktion der Daten erfolgt über die verschiedenen SPARQL-Endpunkte.
+
+\subsection{Extraktion Professorenkatalog}
+
+\subsection{Extraktion GND}
+
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+
+\section{Verlinkung von Ressourcen}
+
+Die Verlinkung erfolgt über die GND. dabei werden im Triple-Store \verb+owl:sameAs+ Triple\footnote{OWL Web Ontology Language Reference owl:sameAs: \url{http://www.w3.org/TR/owl-ref/\#sameAs-def}} hinzugefügt. Die Listing \ref{list:sameAs} zeit dies an einem Beispiel:
+
+\begin{lstlisting}[caption={Beispiel für die Verwendung von owl:sameAS}, label={list:sameAs}]
+http://catalogs-professorum.org/lipsiensis/Schuecking_144 owl:sameAs http://d-nb.info/gnd/117124931.
+\end{lstlisting}
+
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+
+\section{Anfrage an die Forschungswissensbasis}
+
+\subsection{SPARQL-Anfrage}
+
+\subsection{Ergebnis der Anfrage}
+
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+
+
+\section{Interpretation und Zusammenfassung}
+
+\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+
+\bibliographystyle{alpha}
+\bibliography{ProjektdokumentationSW}
+
+
+
+\end{document}
