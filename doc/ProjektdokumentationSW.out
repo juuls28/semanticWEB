@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Inhaltliche\040Interpretation\040der\040Fragestellung}{}% 1
+\BOOKMARK [1][-]{section.2}{Relevante\040Datenquellen}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Professorenkatalog der Universität Leipzig}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Bibliothekskatalog\040der\040Deutsch\040Nationalbibliothek}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Vokabular}{}% 5
+\BOOKMARK [1][-]{section.4}{Extraktion\040relevanter\040Daten\040und\040Import\040in\040einen\040Triplestore\040}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Extraktion\040Professorenkatalog}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Extraktion\040GND}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Verlinkung\040von\040Ressourcen}{}% 9
+\BOOKMARK [1][-]{section.6}{Anfrage\040an\040die\040Forschungswissensbasis}{}% 10
+\BOOKMARK [2][-]{subsection.6.1}{SPARQL-Anfrage}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.2}{Ergebnis\040der\040Anfrage}{section.6}% 12
+\BOOKMARK [1][-]{section.7}{Interpretation\040und\040Zusammenfassung}{}% 13
