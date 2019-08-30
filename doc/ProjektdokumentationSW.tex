@@ -3,6 +3,7 @@
 \usepackage{polyglossia}
 \usepackage{xcolor} 
 \usepackage{listings}
+\usepackage{color}
 \setdefaultlanguage[spelling=new,babelshorthands=true]{german}
 
 \usepackage{fontspec}
@@ -14,6 +15,26 @@
 \usepackage{hyperref}
 
 \usepackage[left=2cm,right=2cm,top=3.0cm,bottom=3.0cm]{geometry}
+
+\lstset{
+	basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{orange},
+   stringstyle=\color{green}\ttfamily,
+   commentstyle=\color{middlegray}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   showstringspaces=false,
+   flexiblecolumns=false,
+   tabsize=2,
+   numbers=left,
+   numberstyle=\tiny,
+   numberblanklines=false,
+   stepnumber=1,
+   numbersep=10pt,
+   xleftmargin=15pt
+}
 
 
 
@@ -89,6 +110,11 @@ Die Daten werden auf der Website \url{https://www.wahlrecht.de/} in HTML-Tabelle
 Für den Aufbau der Datenbasis wurde das RDF-Vokabular verwendet. Der Präfix zu dem RDF-Vokabular ist \textit{http://www.w3.org/1999/02/22-rdf-syntax-ns}\\
 
 Für die spezifischen Daten wurde ein neues Vokabular erstellt. Dieses wurde unter dem Präfix \textit{https://github.com/juuls28/semanticWEB} verwendet.\\ 
+\\
+\begin{lstlisting}[caption={Präfixe}\label{lst:prefixes},captionpos=t,language=XML] 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="https://github.com/juuls28/semanticWEB#"
+\end{lstlisting}
 \subsection{Terroranschlag}
 Die Daten der Terroranschläge sind durch Ihre ID gekennzeichnet.\\
 Aus der Terrordatenbank lassen sich viele Daten zu jedem Terroranschlag auslesen. Hier wurden nur die wichtigsten extrahiert.\\
@@ -103,6 +129,15 @@ Aus der Terrordatenbank lassen sich viele Daten zu jedem Terroranschlag auslesen
 \\
 \textbf{hasInjuries} beschreibt die Anzahl der verletzten Personen als ganze Zahl.\\
 \\
+\begin{lstlisting}[caption={Beispiel RDF Terroranschlag}\label{lst:test123},captionpos=t,language=XML] 
+<rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#201608040029">
+    <j.0:hasInjuries>0</j.0:hasInjuries>
+    <j.0:hasFatalities>0</j.0:hasFatalities>
+    <j.0:inCity>Berlin</j.0:inCity>
+    <j.0:inCountry>Germany</j.0:inCountry>
+    <j.0:happenedOn>2016-08-04</j.0:happenedOn>
+ </rdf:Description>
+\end{lstlisting}
 \subsection{DAX-Kurs}
 Die Daten des Aktienkurses sind durch das Wort DAX und das Datum eindeutig identifizierbar. Die Ressourcen haben daher die Form DAXyyyy-MM-dd.\\
 Bei den historischen Daten des DAX-Kurses wird das Datum und der zugehörige Eröffnungskurs beachtet.\\
@@ -111,33 +146,94 @@ Bei den historischen Daten des DAX-Kurses wird das Datum und der zugehörige Er�
 \\
 \textbf{value} beschreibt den Wer des Eröffnungskurses am Tag der Ressource als Fließkommazahl.\\
 \\
-
-
+\begin{lstlisting}[caption={Beispiel RDF DAX}\label{lst:test123},captionpos=t,language=XML] 
+<rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#DAX2009-11-02">
+    <j.0:value>5410.609863</j.0:value>
+    <j.0:happenedOn>2009-11-02</j.0:happenedOn>
+</rdf:Description>
+\end{lstlisting}
+\subsection{Wahlumfrage}
+Die Wahlumfrage wird durch das Datum im Format yyyy-MM-dd gekennzeichnet. Sie beinhaltet das Datum und eine Liste der Parteien mit den zugehörigen Prozentsatz, mit dem diese gewählt worden wären.\\
+\\
+\textbf{happendOn} beschreibt das Datum im Format yyyy-MM-dd an dem das Ereignis geschehen ist.\\
+\\
+\textbf{outcomes} beinhaltet eine Liste der Ressource Partei.
+\\
+\subsection{Partei}
+Die Ressource Partei wir durch das Datum im Format yyyy-MM-dd und den Parteinamen gekennzeichnet.\\
+Sie repräsentiert das Wahlergebnis zu jeder Partei an dem Datum der Wahl.\\
+\\
+\textbf{partyName} beschreibt den Namen der Partei als Zeichenkette.\\
+\\
+\textbf{partyPercent} beschreibt das Wahlergebnis (Prozentsatz) der Partei als Fließkommazahl.\\
+\\
+\begin{lstlisting}[caption={Beispiel RDF Wahlumfrage}\label{lst:test123},captionpos=t,language=XML] 
+<rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21">
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21Sonstige">
+        <j.0:partyPercent>4.0</j.0:partyPercent>
+        <j.0:partyName>Sonstige</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21PDS">
+        <j.0:partyPercent>5.0</j.0:partyPercent>
+        <j.0:partyName>PDS</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21FDP">
+        <j.0:partyPercent>9.0</j.0:partyPercent>
+        <j.0:partyName>FDP</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21GRÜNE">
+        <j.0:partyPercent>7.0</j.0:partyPercent>
+        <j.0:partyName>GRÜNE</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21SPD">
+        <j.0:partyPercent>39.0</j.0:partyPercent>
+        <j.0:partyName>SPD</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:outcomes>
+      <rdf:Description rdf:about="https://github.com/juuls28/semanticWEB#2001-06-21CDU/CSU">
+        <j.0:partyPercent>36.0</j.0:partyPercent>
+        <j.0:partyName>CDU/CSU</j.0:partyName>
+      </rdf:Description>
+    </j.0:outcomes>
+    <j.0:happenedOn>2001-06-21</j.0:happenedOn>
+</rdf:Description>
+\end{lstlisting}
 
 \section{Extraktion relevanter Daten und Import in einen Triplestore }
 
-Die Extraktion der Daten erfolgt über die verschiedenen SPARQL-Endpunkte.
+Die Datensätze wurde teilweise automatisch und teilweise manuell heruntergeladen und weiterverarbeitet. Als Basis dient hierzu ein Java-Projekt welches unter dem Github Repository \url{https://github.com/juuls28/semanticWEB} einsehbar ist.\\
+Aus den einzelnen Daten wurde mit Hilfe des Apache Jena Frameworks ein Tripelstore gebildet und SPARQL-Abfragen ausgeführt.
 
-\subsection{Extraktion Professorenkatalog}
-
-\subsection{Extraktion GND}
-
-
-\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+\subsection{Extraktion Terrordatenbank}
+Die CSV-Datei mit den Daten zu den Terroranschlägen kann direkt durch einer URL in das Programm geladen werden. Mit in die URL können Filterparameter wie Startdatum, Enddatum, Land, Stadt etc. angegeben werden.\\
+Hier war nur das Start- und Enddatum relevant, welche dynamisch anhand des Suchzeitraums hinzugefügt werden. Das Land bleibt statisch auf Deutschland eingestellt.
+Eine Abfrage vom 01.01.2010 bis zum 01.01.2011 würde wie folgt aussehen: \url{https://www.start.umd.edu/gtd/search/ResultsCSV.aspx?csv=1&casualties_type=b&casualties_max=&start_year=2010&start_month=1&start_day=1&end_year=2011&end_month=1&end_day=1&dtp2=all&country=75}
+\\
+Aus den CSV-Dateien konnte dann die Daten zu den Anschlägen ausgelesen werden. Hierbei wurden fehlerhafte Daten bereinigt. Wenn die Daten nicht bereinigt werden konnten, wurden sie nicht übernommen.
+\subsection{Extraktion DAX-Kurs}
+Der DAX-Kurs wurde manuell als CSV-Datei heruntergeladen und in das Projekt importiert.
+Die Daten konnten dann wie bei der Terrordatenbank in das Programm geladen und bereinigt werden.\\
+\subsection{Extraktion Wahlumfrage}
+Die Daten zur Wahlumfrage mussten direkt von der HTML-Tabelle auf der Website ausgelesen werden. Hierfür wurde die Bibliothek jsoup\footnote{jsoup ist eine OpenSource Bibliothek und ist unter der Verwendung der MIT-Lizenz benutzbar. Informationen hierzu gibt es unter \url{https://jsoup.org/}} verwendet. jsoup ist ein HTML-Parser mit dem Websiten nach bestimmten Merkmalen untersucht werden können. Mithilfe dieser Bibliothek konnten die Daten ausgelesen und in aufbereitet werden.\\ Leider werden auch auf dieser Website inkonsistente Daten bereitgestellt, weswegen bestimmte Datensätze aufbereitet werden mussten, oder nicht verwertbar waren.
 
 \section{Verlinkung von Ressourcen}
 
-Die Verlinkung erfolgt über die GND. dabei werden im Triple-Store \verb+owl:sameAs+ Triple\footnote{OWL Web Ontology Language Reference owl:sameAs: \url{http://www.w3.org/TR/owl-ref/\#sameAs-def}} hinzugefügt. Die Listing \ref{list:sameAs} zeit dies an einem Beispiel:
-
-\begin{lstlisting}[caption={Beispiel für die Verwendung von owl:sameAS}, label={list:sameAs}]
-http://catalogs-professorum.org/lipsiensis/Schuecking_144 owl:sameAs http://d-nb.info/gnd/117124931.
-\end{lstlisting}
+Die Verschiedenen Ressourcen werden über das Datum, also über die Eigenschaft https://github.com/juuls28/semanticWEB\#happenedOn/ verlinkt. Dazu wurde mit Hilfe des Frameworks Apache Jena ein RDF Model erstellt. Dieses Model fungiert als Tripel Store. Das ganze Model ist in dem Projekt unter dem Pfad /data/model.rdf exportiert worden, damit es auch in anderen Services wie den SPARQL Server Apache Jena Fuseki verwendet werden kann.
 
 
-\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
 
 \section{Anfrage an die Forschungswissensbasis}
-
+Im Rahmen der geschriebenen Software gibt es drei SPARQL-Anfragen
 \subsection{SPARQL-Anfrage}
 
 \subsection{Ergebnis der Anfrage}
