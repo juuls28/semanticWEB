@@ -30,48 +30,88 @@
 \hyphenation{In-forma-tik}
 
 \paragraph{Recherchefragestellung: }
-Publikationen aller naturwissenschaftlichen Professoren der Universität Leipzig, welche gemeinsam mit Autoren der Bundesrepublik Deutschland in den Jahren 1980 bis 1989 publizierten.
+Wie hängen Terroranschläge in Deutschland mit dem deutschen Aktienindex und den den deutschen Wahlverhalten zusammen.
 
 
 \section{Inhaltliche Interpretation der Fragestellung}
 
-Die Beantwortung dieser Fragestellung lässt bezieht sich im Kontext der Geschichtswissenschaften auf die Forschung im Bereich der wissenschaftliche Zusammenarbeit während der letzten 10 Jahre des kalten Krieges\footnote{Konfrontation zwischen Ost- und Westblock zwischen den Jahren 1947 und 1989}. Die Fragestellung ordnet sich in das Feld der prosopographischen Forschung, der Forschung über eine große Gruppe von Individuen in der Geschichte, ein.
+Im Rahmen dieser Forschungsarbeit ist eine konkrete Interpretation, bzw. Schlussforderung natürlich nicht möglich. Alle Zusammenhänge die zwischen den Datenquellen gefunden wurden können durch Zufall entstanden sein.\\
+Natürlich kann es bei dieser Fragestellung auch direkte Zusammenhänge geben. Terroranschläge können in der Gesellschaft einer Nation Angst und Hass schüren, was sich wiederum auf das Wahlverhalten auswirken kann. Auch können Terroranschläge bestimmte Bereiche der Wirtschaft finanziell zu Gute kommen, allerdings auch genauso Schaden. Beispielsweise könnte der Bereich der Waffen- und Militärausrüstung davon profitieren, oder  bei vorhandener Angst der Einzelhandel leiden.
 
-\vspace{0.5cm}\textcolor{blue}{\textbf{Anmerkung:} Es ist wichtig, dass Sie zu allen unten aufgeführten Punkte nachvollziehbar Ihre Ergebnisse bzw. die von Ihnen durchgeführten Aktivitäten dokumentieren. Die Länge der Dokumentation ist abhängig von der Anzahl und den Besonderheiten der einzelnen Datenquellen. Die Seitenzahl ist auf 30 Seiten begrenzt (Mindestseitenzahl 10). Sollten Sie zu keinem Ergebnis Ihrer Recherche gekommen sein, ist eine Darstellung der Probleme und möglicher Alternativen erforderlich.}
+
 
 \section{Relevante Datenquellen}
 
-An dieser Stelle erfolgt eine Auflistung aller relevanten Datenquellen und deren Beschreibung.
+Relevante Datenquellen waren die Terrordatenbank der University Maryland, die Website Yahoo Finance, welche historische Daten des DAX zum Download zur Verfügung stellt und die Sonntagsfrage des FORSA Instituts, welches nahezu jeden Sonntag eine Wahlumfrage erhebt.
 
-\subsection{Professorenkatalog der Universität Leipzig}
+\subsection{Terrordatenbank der University Maryland}
 
-Die Datenbank des Professorenkatalogs ist als Linked Data Endpunkt im Web realisiert. Sie erfasst derzeit ca. 2000 Professoren, welche an der Universität Leipzig seit dem Gründungsjahr 1409 lehrten \cite{riechert_knowledge_2010}.
-
-\vspace{0.5cm}
-\begin{tabular}{l|p{9cm}}
-	Link & \url{http://catalogus-professorum.org/} \\
- 	Datenformat & RDF, OWL \\
- 	Schnittstelle & SPARQL, Linked Data, Dump, Rest-API \\
- 	Lizenz & CC-SA \\
- 	Open Data & $\star\star\star\star\star$ \\
-\end{tabular}
-
-\subsection{Bibliothekskatalog der Deutsch Nationalbibliothek}
-
-Die Deutsche Nationalbibliothek (DNB) sammelt alle deutschen Publikationen seit dem Jahr 1913. Darüber hinaus bietet sie umfangreiche Dienstleistungen für Bibliotheken und Wissenschaftler an. Mittels einer durch die DNB vergebenen Normdatensatz (GND)\footnote{Gemeinsame Normdatei} lassen sich Werke, Personen oder Körperschaften identifizieren. Diese Identifizierung ermöglicht es Personen unterschiedlicher Quellen zu verlinken.
+Die Datenbank der University Maryland beinhaltet globale Terroranschläge von 1970 bis 2017. Auf der Website werden die Daten als CSV-Datei zum Download angeboten und können auch direkt über eine Tabelle auf der Website angezeigt werden.
 
 \vspace{0.5cm}
 \begin{tabular}{l|p{9cm}}
-	Link & \url{https://portal.dnb.de/} \\
- 	Datenformat & RDF \\
- 	Schnittstelle & Linked Data, Dump, Rest-API \\
- 	Lizenz & CC-SA \\
- 	Open Data & $\star\star\star\star$ \\
+	Link & \url{https://www.start.umd.edu/gtd/about/} \\
+ 	Datenformat & CSV, HTML \\
+ 	Schnittstelle & Webscarper, manueller Download \\
+ 	Lizenz & \url{https://www.start.umd.edu/gtd/terms-of-use/} \\
+ 	Open Data & $\star\star\star$ \\
 \end{tabular}
 
-\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+\subsection{Yahoo Finance}
+
+Die Website Yahoo Finance stellt sämtliche Börsenkurse und auch historische Daten davon bereit.\\
+Yahoo Finance hat bis zum März 2019 eine API-Schnittstelle der verfügbaren Finanzdaten angeboten. Leider wurde diese Schnittstelle eingestellt und die Daten können nur durch einen Webscarper, oder einen manuellen Download heruntergeladen werden. Eine Automatisierung des Downloads gestaltet sich durch Sicherheitsmaßnahmen der Website als schwierig. Aufgrund dessen wurden die die Tageshöchstsätze des DAX manuell als CSV-Datei heruntergeladen, welche bis zum 01.01.2004 zurückgeht.
+
+\vspace{0.5cm}
+\begin{tabular}{l|p{9cm}}
+	Link & \url{https://de.finance.yahoo.com/} \\
+ 	Datenformat & CSV, HTML \\
+ 	Schnittstelle & manueller Download \\
+ 	Lizenz & \url{https://policies.oath.com/ie/de/oath/terms/otos/index.html} \\
+ 	Open Data & $\star\star$ \\
+\end{tabular}
+
+\subsection{Sonntagsfrage FORSA}
+
+Das FORSA Institut stellt zu jeden Sonntag die Sonntagsfrage. Bei dieser Frage werden die Befragten gefragt, welche Partei sie wählen würden, wenn am nächsten Sonntag die Bundeswahl wäre. Diese Daten gehen bis 1998 zurück. Es gibt allerdings auch Zeiträume, in denen keine Daten vorhanden sind.\\
+Die Daten werden auf der Website \url{https://www.wahlrecht.de/} in HTML-Tabellen bereitgestellt.
+
+\vspace{0.5cm}
+\begin{tabular}{l|p{9cm}}
+	Link & https://www.wahlrecht.de/umfragen/forsa.htm \\
+ 	Datenformat & HTML \\
+ 	Schnittstelle & Webscarper \\
+ 	Lizenz &  \\
+ 	Open Data & $\star\star$ \\
+\end{tabular}
 
 \section{Vokabular}
+Für den Aufbau der Datenbasis wurde das RDF-Vokabular verwendet. Der Präfix zu dem RDF-Vokabular ist \textit{http://www.w3.org/1999/02/22-rdf-syntax-ns}\\
+
+Für die spezifischen Daten wurde ein neues Vokabular erstellt. Dieses wurde unter dem Präfix \textit{https://github.com/juuls28/semanticWEB} verwendet.\\ 
+\subsection{Terroranschlag}
+Die Daten der Terroranschläge sind durch Ihre ID gekennzeichnet.\\
+Aus der Terrordatenbank lassen sich viele Daten zu jedem Terroranschlag auslesen. Hier wurden nur die wichtigsten extrahiert.\\
+\\
+\textbf{happenedOn} beschreibt das Datum im Format yyyy-MM-dd an dem das Ereignis geschehen ist.\\
+\\
+\textbf{inCountry} beschreibt das Land in dem das Ereignis passiert ist als Zeichenkette.\\
+\\
+\textbf{inCity} beschreibt die Stadt in dem das Ereignis passiert ist als Zeichenkette.\\
+\\
+\textbf{hasFatalitites} beschreibt die Anzahl der getöteten Personen als ganze Zahl.\\
+\\
+\textbf{hasInjuries} beschreibt die Anzahl der verletzten Personen als ganze Zahl.\\
+\\
+\subsection{DAX-Kurs}
+Die Daten des Aktienkurses sind durch das Wort DAX und das Datum eindeutig identifizierbar. Die Ressourcen haben daher die Form DAXyyyy-MM-dd.\\
+Bei den historischen Daten des DAX-Kurses wird das Datum und der zugehörige Eröffnungskurs beachtet.\\
+\\
+\textbf{happenedOn} beschreibt das Datum im Format yyyy-MM-dd an dem das Ereignis geschehen ist.\\
+\\
+\textbf{value} beschreibt den Wer des Eröffnungskurses am Tag der Ressource als Fließkommazahl.\\
+\\
+
 
 
 \section{Extraktion relevanter Daten und Import in einen Triplestore }

@@ -1,13 +1,16 @@
-\BOOKMARK [1][-]{section.1}{Inhaltliche\040Interpretation\040der\040Fragestellung}{}% 1
-\BOOKMARK [1][-]{section.2}{Relevante\040Datenquellen}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Professorenkatalog der Universität Leipzig}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Bibliothekskatalog\040der\040Deutsch\040Nationalbibliothek}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Vokabular}{}% 5
-\BOOKMARK [1][-]{section.4}{Extraktion\040relevanter\040Daten\040und\040Import\040in\040einen\040Triplestore\040}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{Extraktion\040Professorenkatalog}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{Extraktion\040GND}{section.4}% 8
-\BOOKMARK [1][-]{section.5}{Verlinkung\040von\040Ressourcen}{}% 9
-\BOOKMARK [1][-]{section.6}{Anfrage\040an\040die\040Forschungswissensbasis}{}% 10
-\BOOKMARK [2][-]{subsection.6.1}{SPARQL-Anfrage}{section.6}% 11
-\BOOKMARK [2][-]{subsection.6.2}{Ergebnis\040der\040Anfrage}{section.6}% 12
-\BOOKMARK [1][-]{section.7}{Interpretation\040und\040Zusammenfassung}{}% 13
+\BOOKMARK [1][-]{section.1}{Inhaltliche Interpretation der Fragestellung}{}% 1
+\BOOKMARK [1][-]{section.2}{Relevante Datenquellen}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Terrordatenbank der University Maryland}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Yahoo Finance}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Sonntagsfrage FORSA}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Vokabular}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Terroranschlag}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{DAX-Kurs}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Extraktion relevanter Daten und Import in einen Triplestore }{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Extraktion Professorenkatalog}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Extraktion GND}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Verlinkung von Ressourcen}{}% 12
+\BOOKMARK [1][-]{section.6}{Anfrage an die Forschungswissensbasis}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{SPARQL-Anfrage}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.2}{Ergebnis der Anfrage}{section.6}% 15
+\BOOKMARK [1][-]{section.7}{Interpretation und Zusammenfassung}{}% 16
