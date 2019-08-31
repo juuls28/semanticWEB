@@ -105,6 +105,7 @@ public class App
                 QuerySolution soln = results.nextSolution() ;
                 System.out.println("Date: " + soln.get("?d"));
                 attackDate = soln.get("?d").toString();
+                System.out.println(soln);
             }
         }
 
@@ -164,7 +165,17 @@ public class App
             {
                 System.out.println("Number: " + results.getRowNumber());
                 QuerySolution soln = results.nextSolution() ;
-                System.out.println(soln);
+                //System.out.println(soln);
+                System.out.println("First Stock: " + soln.get("?firstStock"));
+                System.out.println("Value: " + soln.get("?vF"));
+                System.out.println("Second Stock: " + soln.get("?secondStock"));
+                System.out.println("Value: " + soln.get("?vS"));
+                System.out.println("First Poll: " + soln.get("?firstPoll"));
+                System.out.println("Name: " + soln.get("?p1Name"));
+                System.out.println("Value: " + soln.get("?p1Percent"));
+                System.out.println("Second Poll: "+ soln.get("?secondPoll"));
+                System.out.println("Name: "+ soln.get("?p2Name"));
+                System.out.println("Value: "+ soln.get("?p2Percent"));
             }
 
         }

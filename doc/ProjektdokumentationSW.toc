@@ -1,0 +1,65 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {german}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Recherchefragestellung: }{1}{section*.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Inhaltliche Interpretation der Fragestellung}{4}{section.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Relevante Datenquellen}{4}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Terrordatenbank der University Maryland}{4}{subsection.2.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Yahoo Finance}{4}{subsection.2.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Sonntagsfrage FORSA}{5}{subsection.2.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Vokabular}{5}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Terroranschlag}{5}{subsection.3.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}DAX-Kurs}{6}{subsection.3.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Wahlumfrage}{6}{subsection.3.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}Partei}{7}{subsection.3.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Extraktion relevanter Daten und Import in einen Triplestore }{7}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Extraktion Terrordatenbank}{8}{subsection.4.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Extraktion DAX-Kurs}{8}{subsection.4.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Extraktion Wahlumfrage}{8}{subsection.4.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Verlinkung von Ressourcen}{8}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Anfrage an die Forschungswissensbasis}{8}{section.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}SPARQL-Anfragen}{8}{subsection.6.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1}Terroranschläge in einem bestimmten Zeitraum}{9}{subsubsection.6.1.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.2}Bestimmter Terroranschlag}{9}{subsubsection.6.1.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.3}Verknüpfung mit dem DAX-Kurs und der Wahlumfrage}{9}{subsubsection.6.1.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}Ergebnis der Anfragen}{10}{subsection.6.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.1}Ergebnis Abfrage 1}{10}{subsubsection.6.2.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.2}Ergebnis Abfrage 2}{11}{subsubsection.6.2.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.2.3}Ergebnis Abfrage 3}{11}{subsubsection.6.2.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Interpretation und Zusammenfassung}{12}{section.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Ausblick}{12}{section.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Erstellung des Model}{13}{appendix.A}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.1}Terrormodel}{13}{subsection.A.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.2}Stockmodel}{13}{subsection.A.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.3}Pollmodel}{13}{subsection.A.3}% 

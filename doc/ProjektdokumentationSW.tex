@@ -4,6 +4,7 @@
 \usepackage{xcolor} 
 \usepackage{listings}
 \usepackage{color}
+\usepackage{acronym}
 \setdefaultlanguage[spelling=new,babelshorthands=true]{german}
 
 \usepackage{fontspec}
@@ -13,6 +14,9 @@
 % ------
 % Clickable URLs (optional)
 \usepackage{hyperref}
+\usepackage{biblatex}
+
+\addbibresource{biblio.bib}
 
 \usepackage[left=2cm,right=2cm,top=3.0cm,bottom=3.0cm]{geometry}
 
@@ -36,15 +40,13 @@
    xleftmargin=15pt
 }
 
-
-
-
 \title{Projektdokumentation im Modul Semantic Web -- Zusammenhang von Terroranschlägen mit Witschaft und Politik}
 \author{Hochschule für Technik, Wirtschaft und Kultur Leipzig\\Julius Seiffert - julius.seiffert@stud.htwk-leipzig.de}
 \date{31.08.2019}
 
 
 \begin{document}
+
 
 \maketitle
 
@@ -54,20 +56,38 @@
 Wie hängen Terroranschläge in Deutschland mit dem deutschen Aktienindex und den den deutschen Wahlverhalten zusammen.
 
 
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section*{Abkürzungsverzeichnis}
+\begin{acronym}
+\acro{dax}[DAX]{deutscher Aktienindex}
+\acro{url}[URL]{Uniform Resource Locator}
+\acro{api}[API]{application programming interface}
+\acro{rdf}[RDF]{resource description framework}
+\end{acronym}
+
+\newpage
+
 \section{Inhaltliche Interpretation der Fragestellung}
 
 Im Rahmen dieser Forschungsarbeit ist eine konkrete Interpretation, bzw. Schlussforderung natürlich nicht möglich. Alle Zusammenhänge die zwischen den Datenquellen gefunden wurden können durch Zufall entstanden sein.\\
-Natürlich kann es bei dieser Fragestellung auch direkte Zusammenhänge geben. Terroranschläge können in der Gesellschaft einer Nation Angst und Hass schüren, was sich wiederum auf das Wahlverhalten auswirken kann. Auch können Terroranschläge bestimmte Bereiche der Wirtschaft finanziell zu Gute kommen, allerdings auch genauso Schaden. Beispielsweise könnte der Bereich der Waffen- und Militärausrüstung davon profitieren, oder  bei vorhandener Angst der Einzelhandel leiden.
+Natürlich kann es bei dieser Fragestellung auch direkte Zusammenhänge geben. Terroranschläge können in der Gesellschaft einer Nation Angst und Hass schüren, was sich wiederum auf das Wahlverhalten auswirken kann. Auch können Terroranschläge bestimmte Bereiche der Wirtschaft finanziell zu Gute kommen, allerdings auch genauso Schaden. Beispielsweise könnte der Bereich der Waffen- und Militärausrüstung davon profitieren, oder  bei vorhandener Angst der Einzelhandel leiden.\\
+Mithilfe dieser Arbeit soll herausgefunden werden, ob ein direkter Zusammenhang zwischen Terroranschlägen, der Wirtschaft und der politischen Meinung in Deutschland hergestellt werden kann. Hierzu werden der \ac{dax} unmittelbar vor und nach dem Anschlag benutzt, sowie die Daten der FORSA Sonntagsfrage unmittelbar vor und nach dem Ereignis.
 
 
 
 \section{Relevante Datenquellen}
 
-Relevante Datenquellen waren die Terrordatenbank der University Maryland, die Website Yahoo Finance, welche historische Daten des DAX zum Download zur Verfügung stellt und die Sonntagsfrage des FORSA Instituts, welches nahezu jeden Sonntag eine Wahlumfrage erhebt.
+Relevante Datenquellen zur Auswertung sind die Terrordatenbank der University Maryland, die Website Yahoo Finance, welche historische Daten des \ac{dax} zum Download zur Verfügung stellt und die Sonntagsfrage des FORSA Instituts, welches nahezu jeden Sonntag eine Wahlumfrage erhebt.
 
 \subsection{Terrordatenbank der University Maryland}
 
-Die Datenbank der University Maryland beinhaltet globale Terroranschläge von 1970 bis 2017. Auf der Website werden die Daten als CSV-Datei zum Download angeboten und können auch direkt über eine Tabelle auf der Website angezeigt werden.
+Die Datenbank der University Maryland beinhaltet globale Terroranschläge von 1970 bis 2017. Auf der Website werden die Daten als CSV-Datei zum Download angeboten und können auch direkt über eine Tabelle auf der Website angezeigt werden.\\ Die Anfragen an die Datenbank können mehrfach gefiltert werden. Die Filter werden auch in dem \ac{url} der Website und in dem \ac{url} zum Download angezeigt.
 
 \vspace{0.5cm}
 \begin{tabular}{l|p{9cm}}
@@ -81,7 +101,7 @@ Die Datenbank der University Maryland beinhaltet globale Terroranschläge von 19
 \subsection{Yahoo Finance}
 
 Die Website Yahoo Finance stellt sämtliche Börsenkurse und auch historische Daten davon bereit.\\
-Yahoo Finance hat bis zum März 2019 eine API-Schnittstelle der verfügbaren Finanzdaten angeboten. Leider wurde diese Schnittstelle eingestellt und die Daten können nur durch einen Webscarper, oder einen manuellen Download heruntergeladen werden. Eine Automatisierung des Downloads gestaltet sich durch Sicherheitsmaßnahmen der Website als schwierig. Aufgrund dessen wurden die die Tageshöchstsätze des DAX manuell als CSV-Datei heruntergeladen, welche bis zum 01.01.2004 zurückgeht.
+Yahoo Finance hat bis zum März 2019 eine \ac{api}-Schnittstelle der verfügbaren Finanzdaten angeboten. Leider wurde diese Schnittstelle eingestellt und die Daten können nur durch einen Webscarper, oder einen manuellen Download heruntergeladen werden. Eine Automatisierung des Downloads gestaltet sich durch Sicherheitsmaßnahmen der Website als schwierig. Aufgrund dessen wurden die die Tageshöchstsätze des \ac{dax} manuell als CSV-Datei heruntergeladen, welche bis zum 01.01.2004 zurückgeht.
 
 \vspace{0.5cm}
 \begin{tabular}{l|p{9cm}}
@@ -91,6 +111,7 @@ Yahoo Finance hat bis zum März 2019 eine API-Schnittstelle der verfügbaren Fin
  	Lizenz & \url{https://policies.oath.com/ie/de/oath/terms/otos/index.html} \\
  	Open Data & $\star\star$ \\
 \end{tabular}
+\newpage
 
 \subsection{Sonntagsfrage FORSA}
 
@@ -107,7 +128,7 @@ Die Daten werden auf der Website \url{https://www.wahlrecht.de/} in HTML-Tabelle
 \end{tabular}
 
 \section{Vokabular}
-Für den Aufbau der Datenbasis wurde das RDF-Vokabular verwendet. Der Präfix zu dem RDF-Vokabular ist \textit{http://www.w3.org/1999/02/22-rdf-syntax-ns}\\
+Für den Aufbau der Datenbasis wurde das \ac{rdf}-Vokabular verwendet. Der Präfix zu dem \ac{rdf}-Vokabular ist \textit{http://www.w3.org/1999/02/22-rdf-syntax-ns}\\
 
 Für die spezifischen Daten wurde ein neues Vokabular erstellt. Dieses wurde unter dem Präfix \textit{https://github.com/juuls28/semanticWEB} verwendet.\\ 
 \\
@@ -138,6 +159,7 @@ Aus der Terrordatenbank lassen sich viele Daten zu jedem Terroranschlag auslesen
     <j.0:happenedOn>2016-08-04</j.0:happenedOn>
  </rdf:Description>
 \end{lstlisting}
+\newpage
 \subsection{DAX-Kurs}
 Die Daten des Aktienkurses sind durch das Wort DAX und das Datum eindeutig identifizierbar. Die Ressourcen haben daher die Form DAXyyyy-MM-dd.\\
 Bei den historischen Daten des DAX-Kurses wird das Datum und der zugehörige Eröffnungskurs beachtet.\\
@@ -159,6 +181,7 @@ Die Wahlumfrage wird durch das Datum im Format yyyy-MM-dd gekennzeichnet. Sie be
 \\
 \textbf{outcomes} beinhaltet eine Liste der Ressource Partei.
 \\
+\newpage
 \subsection{Partei}
 Die Ressource Partei wir durch das Datum im Format yyyy-MM-dd und den Parteinamen gekennzeichnet.\\
 Sie repräsentiert das Wahlergebnis zu jeder Partei an dem Datum der Wahl.\\
@@ -213,41 +236,349 @@ Sie repräsentiert das Wahlergebnis zu jeder Partei an dem Datum der Wahl.\\
 
 Die Datensätze wurde teilweise automatisch und teilweise manuell heruntergeladen und weiterverarbeitet. Als Basis dient hierzu ein Java-Projekt welches unter dem Github Repository \url{https://github.com/juuls28/semanticWEB} einsehbar ist.\\
 Aus den einzelnen Daten wurde mit Hilfe des Apache Jena Frameworks ein Tripelstore gebildet und SPARQL-Abfragen ausgeführt.
-
+\newpage
 \subsection{Extraktion Terrordatenbank}
-Die CSV-Datei mit den Daten zu den Terroranschlägen kann direkt durch einer URL in das Programm geladen werden. Mit in die URL können Filterparameter wie Startdatum, Enddatum, Land, Stadt etc. angegeben werden.\\
+Die CSV-Datei mit den Daten zu den Terroranschlägen kann direkt durch einem \ac{url} in das Programm geladen werden. Mit in der \ac{url} können Filterparameter wie Startdatum, Enddatum, Land, Stadt etc. angegeben werden.\\
 Hier war nur das Start- und Enddatum relevant, welche dynamisch anhand des Suchzeitraums hinzugefügt werden. Das Land bleibt statisch auf Deutschland eingestellt.
 Eine Abfrage vom 01.01.2010 bis zum 01.01.2011 würde wie folgt aussehen: \url{https://www.start.umd.edu/gtd/search/ResultsCSV.aspx?csv=1&casualties_type=b&casualties_max=&start_year=2010&start_month=1&start_day=1&end_year=2011&end_month=1&end_day=1&dtp2=all&country=75}
 \\
 Aus den CSV-Dateien konnte dann die Daten zu den Anschlägen ausgelesen werden. Hierbei wurden fehlerhafte Daten bereinigt. Wenn die Daten nicht bereinigt werden konnten, wurden sie nicht übernommen.
 \subsection{Extraktion DAX-Kurs}
-Der DAX-Kurs wurde manuell als CSV-Datei heruntergeladen und in das Projekt importiert.
+Der DAX-Kurs wurde manuell als CSV-Datei heruntergeladen und in das Projekt importiert. Es wurden alle Tagessätze vom 28.07.2004 bis zum 27.07.2018 heruntergeladen. Bei bedarf kann auch eine neue CSV-Datei in das Programm geladen werden.
 Die Daten konnten dann wie bei der Terrordatenbank in das Programm geladen und bereinigt werden.\\
 \subsection{Extraktion Wahlumfrage}
 Die Daten zur Wahlumfrage mussten direkt von der HTML-Tabelle auf der Website ausgelesen werden. Hierfür wurde die Bibliothek jsoup\footnote{jsoup ist eine OpenSource Bibliothek und ist unter der Verwendung der MIT-Lizenz benutzbar. Informationen hierzu gibt es unter \url{https://jsoup.org/}} verwendet. jsoup ist ein HTML-Parser mit dem Websiten nach bestimmten Merkmalen untersucht werden können. Mithilfe dieser Bibliothek konnten die Daten ausgelesen und in aufbereitet werden.\\ Leider werden auch auf dieser Website inkonsistente Daten bereitgestellt, weswegen bestimmte Datensätze aufbereitet werden mussten, oder nicht verwertbar waren.
 
 \section{Verlinkung von Ressourcen}
 
-Die Verschiedenen Ressourcen werden über das Datum, also über die Eigenschaft https://github.com/juuls28/semanticWEB\#happenedOn/ verlinkt. Dazu wurde mit Hilfe des Frameworks Apache Jena ein RDF Model erstellt. Dieses Model fungiert als Tripel Store. Das ganze Model ist in dem Projekt unter dem Pfad /data/model.rdf exportiert worden, damit es auch in anderen Services wie den SPARQL Server Apache Jena Fuseki verwendet werden kann.
+Die Verschiedenen Ressourcen werden über das Datum, also über die Eigenschaft https://github.com/juuls28/semanticWEB\#happenedOn/ verlinkt. Dazu wurde mit Hilfe des Frameworks Apache Jena ein RDF Model erstellt. Dieses Model fungiert als Tripel Store. Das Implementierung ist wurde in der Datei ModelBuilder.java vorgenommen und kann im Anhang \nameref{model} eingesehen werde. Das ganze Model ist in dem Projekt unter dem Pfad /data/model.rdf exportiert worden, damit es auch in anderen Services wie den SPARQL Server Apache Jena Fuseki verwendet werden kann.
 
 
 
 \section{Anfrage an die Forschungswissensbasis}
-Im Rahmen der geschriebenen Software gibt es drei SPARQL-Anfragen
-\subsection{SPARQL-Anfrage}
+Im Rahmen der geschriebenen Software gibt es drei SPARQL-Anfragen. Da der Benutzer zuerst nach einem Zeitraum gefragt wird, in dem er Terroranschläge in Deutschland angezeigt bekommen soll, müssen diese Anschläge aus dem Tripelstore geladen werden.\\
+Danach wählt der Benutzer einen Anschlag aus und bekommt die Daten zu diesem Anschläge mit der zweiten SPARQL Anfrage zurück.\\
+Zum Schluss erfolgt die eigentliche und wichtigste SPARQL Anfrage, welche die Ressourcen verknüpft und Korrelationen aufzeigt.
+\subsection{SPARQL-Anfragen}
+SPARQL dient zur Abfrage von \ac{rdf}-Daten. Diese Daten werden in Graphen gespeichert. Mithilfe von SPARQL können die Daten verbunden, Inhalte getestet und die Ergebnisse als Sets angezeigt werden.\\
+Alle Anfragen werden anhand eines Beispiels aufgezeigt, um die Funktion zu verdeutlichen.
+\subsubsection{Terroranschläge in einem bestimmten Zeitraum}
+Der Benutzer kann zu Beginn der Programmausführung einen Zeitraum auswählen, in dem die Daten zu den Terroranschlägen heruntergeladen werden.\\
+Bei der ersten Anfrage werden alle Terroranschläge mit den zugehörigen Daten ausgegeben, die heruntergeladen wurden.(vgl. \ref{lst:ergebnis1})\\
+\begin{lstlisting}[caption={SPARQL 1}\label{lst:test123},captionpos=t,language=SQL] 
+Prefix ns: <https://github.com/juuls28/semanticWEB#>
+SELECT ?s ?c ?d ?o
+WHERE { ?s ns:hasInjuries ?o . 
+	?s ns:inCity ?c .
+	?s ns:happenedOn ?d .
+}
+ORDER BY ASC(?d)
+\end{lstlisting}
+\subsubsection{Bestimmter Terroranschlag}
+Vor der zweiten Abfrage wird der User nach einen Terroranschlag gefragt, zu dem er die Verbindung zu DAX und Wahlumfrage erhalten will.\\Es wird das Datum des Anschlags abgefragt und zurückgegeben.(vgl. \ref{lst:ergebnis2})\\
+Im Beispiel wurde der Anschlag des 29.09.2014 in Berlin genommen.
+\begin{lstlisting}[caption={SPARQL 2}\label{lst:test123},captionpos=t,language=SQL] 
+Prefix ns: <https://github.com/juuls28/semanticWEB#>
+SELECT ?d
+WHERE { <https://github.com/juuls28/semanticWEB#201409290078> ns:happenedOn ?d . 
+}
+\end{lstlisting}
+\subsubsection{Verknüpfung mit dem DAX-Kurs und der Wahlumfrage}
+Die letzte SPARQL Anfrage liefert die Werte des \ac{dax} am ersten verfügbaren Tag, vor und nach des Anschlags, sowie die ersten Wahlumfragen vor und nach dem Anschlag.\\
+Hierbei wird dynamisch das Datum des Anschlags in die Query mit einbezogen, um so die zugehörigen Ressourcen herauszufinden. Die Ressource der Wahlumfragen und der \ac{dax}-Kurse werden mithilfe vier Subqueries abgefragt. Aus den Ressourcen der Subqueries werden dann die Eigenschaften abgefragt und angezeigt.(vgl. \ref{lst:ergebnis3})\\
+\begin{lstlisting}[caption={SPARQL 3}\label{lst:test123},captionpos=t,language=SQL] 
+Prefix ns: <https://github.com/juuls28/semanticWEB#>
 
-\subsection{Ergebnis der Anfrage}
+SELECT ?firstStock ?secondStock ?vF ?vS ?firstPoll ?secondPoll ?p1Name ?p1Percent ?p2Name ?p2Percent
+WHERE { 
+  {Select ?firstStock
+    WHERE{
+      ?firstStock ns:happenedOn ?date .
+      ?firstStock ns:value ?o .
+      Filter(?date < "2014-09-29")
+    } Order By DESC (?date)
+    Limit 1
+  }
+  {Select ?secondStock
+    WHERE{
+      ?secondStock ns:happenedOn ?date .
+      ?secondStock ns:value ?o .
+      Filter(?date > "2014-09-29")
+    } Order By ASC (?date)
+    Limit 1
+  }
+  ?firstStock ns:value ?vF .
+  ?secondStock ns:value ?vS .
+  {Select ?firstPoll
+    WHERE{
+      ?firstPoll ns:happenedOn ?date .
+      ?firstPoll ns:outcomes ?o .
+      Filter(?date < "2014-09-29")
+    } Order By DESC (?date)
+    Limit 1
+  }
+  {Select ?secondPoll
+    WHERE{
+      ?secondPoll ns:happenedOn ?date .
+      ?secondPoll ns:outcomes ?o .
+      Filter(?date > "2014-09-29")
+    } Order By ASC (?date)
+    Limit 1
+  }
+  ?firstPoll ns:outcomes ?outF .
+  ?outF ns:partyName ?p1Name .
+  ?outF ns:partyPercent ?p1Percent .
+  ?secondPoll ns:outcomes ?outS .
+  ?outS ns:partyName ?p2Name .
+  ?outS ns:partyPercent ?p2Percent .
+  Filter(?p1Name = ?p2Name) 
+}
+\end{lstlisting}
+\subsection{Ergebnis der Anfragen}
+Die Ergebnisse der SPARQL-Anfragen wurden aus Platzgründen modifiziert. Hierdurch leidet leider die Darstellung und Übersichtlichkeit.
+\subsubsection{Ergebnis Abfrage 1}
+Das Ergebnis aus SPARQL 1 mit dem Beispiel vom 01.01.2011 bis zum 01.01.2015.
+\begin{lstlisting}[caption={Ergebnis SPARQL 1}\label{lst:ergebnis1},captionpos=t] 
+Number: 0
+Id: https://github.com/juuls28/semanticWEB#201103020018	Date: 2011-03-02	City: Frankfurt
+Number: 1
+Id: https://github.com/juuls28/semanticWEB#201110100012	Date: 2011-10-10	City: Berlin
+Number: 2
+Id: https://github.com/juuls28/semanticWEB#201110100013	Date: 2011-10-10	City: Brieselang
+Number: 3
+Id: https://github.com/juuls28/semanticWEB#201110110004	Date: 2011-10-11	City: Berlin
+Number: 4
+Id: https://github.com/juuls28/semanticWEB#201110120010	Date: 2011-10-12	City: Staaken
+Number: 5
+Id: https://github.com/juuls28/semanticWEB#201110130007	Date: 2011-10-13	City: Staaken
+Number: 6
+Id: https://github.com/juuls28/semanticWEB#201112070001	Date: 2011-12-07	City: Frankfurt
+Number: 7
+Id: https://github.com/juuls28/semanticWEB#201201230007	Date: 2012-01-23	City: Magdeburg
+Number: 8
+Id: https://github.com/juuls28/semanticWEB#201205010017	Date: 2012-05-01	City: Berlin
+Number: 9
+Id: https://github.com/juuls28/semanticWEB#201205140051	Date: 2012-05-14	City: Potsdam
+Number: 10
+Id: https://github.com/juuls28/semanticWEB#201210150015	Date: 2012-10-15	City: Berlin
+Number: 11
+Id: https://github.com/juuls28/semanticWEB#201212100015	Date: 2012-12-10	City: Bonn
+Number: 12
+Id: https://github.com/juuls28/semanticWEB#201401020034	Date: 2014-01-02	City: Berlin
+Number: 13
+Id: https://github.com/juuls28/semanticWEB#201407020046	Date: 2014-07-02	City: Berlin
+Number: 14
+Id: https://github.com/juuls28/semanticWEB#201407290016	Date: 2014-07-29	City: Wuppertal
+Number: 15
+Id: https://github.com/juuls28/semanticWEB#201408100063	Date: 2014-08-10	City: Bielefeld
+Number: 16
+Id: https://github.com/juuls28/semanticWEB#201408110052	Date: 2014-08-11	City: Berlin
+Number: 17
+Id: https://github.com/juuls28/semanticWEB#201408250087	Date: 2014-08-25	City: Berlin
+Number: 18
+Id: https://github.com/juuls28/semanticWEB#201408280032	Date: 2014-08-28	City: Berlin
+Number: 19
+Id: https://github.com/juuls28/semanticWEB#201408300060	Date: 2014-08-30	City: Oldenburg
+Number: 20
+Id: https://github.com/juuls28/semanticWEB#201408300061	Date: 2014-09-04	City: Moelln
+Number: 21
+Id: https://github.com/juuls28/semanticWEB#201409290078	Date: 2014-09-29	City: Berlin
+Number: 22
+Id: https://github.com/juuls28/semanticWEB#201410110069	Date: 2014-10-11	City: Bad Salzuflen
+Number: 23
+Id: https://github.com/juuls28/semanticWEB#201410120059	Date: 2014-10-12	City: Gross Lusewitz
+Number: 24
+Id: https://github.com/juuls28/semanticWEB#201412120084	Date: 2014-12-12	City: Vorra
+Number: 25
+Id: https://github.com/juuls28/semanticWEB#201501110002	Date: 2015-01-11	City: Hamburg
+\end{lstlisting}
+\subsubsection{Ergebnis Abfrage 2}
+Das Ergebnis der Abfrage nach einem Ereignis. Als Beispiel wurde der 29.09.2014 genommen.
+\begin{lstlisting}[caption={Ergebnis SPARQL 2}\label{lst:ergebnis2},captionpos=t] 
+Date: 2014-09-29
+\end{lstlisting}
+\subsubsection{Ergebnis Abfrage 3}
+Das Ergebnis der Abfrage nach den Werten der der \ac{dax}-Kurse und Wahlumfragen.\\
+Im Ergebnis werden werden pro Nummer immer der \ac{dax}-Kurs vor und nach dem Anschlag angezeigt, sowie das Umfrageergebnis einer Partei vor und nach dem Anschlag. Der \ac{dax}-Kurs und die Namen der Ressourcen bleiben also immer gleich, nur die Parteien ändern sich mit Ihrem Umfrageergebnis.
+\begin{lstlisting}[caption={Ergebnis SPARQL 3}\label{lst:ergebnis3},captionpos=t] 
+Number: 0
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: AfD
+Value: 10.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: AfD
+Value: 9.0
+Number: 1
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: LINKE
+Value: 9.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: LINKE
+Value: 8.0
+Number: 2
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: FDP
+Value: 2.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: FDP
+Value: 2.0
+Number: 3
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: GRÜNE
+Value: 8.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: GRÜNE
+Value: 9.0
+Number: 4
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: SPD
+Value: 22.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: SPD
+Value: 23.0
+Number: 5
+First Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-26
+Value: 9500.549805
+Second Stock: https://github.com/juuls28/semanticWEB#DAX2014-09-30
+Value: 9446.80957
+First Poll: https://github.com/juuls28/semanticWEB#2014-09-23
+Name: CDU/CSU
+Value: 42.0
+Second Poll: https://github.com/juuls28/semanticWEB#2014-10-01
+Name: CDU/CSU
+Value: 42.0
+\end{lstlisting}
+Es lässt sich in dieser Abfrage nun sagen, dass der \ac{dax} um 54 Punkte verloren hat und das die Wahlumfrage wie folgt aussieht:\\
+\\
+\begin{tabular}{lcr}
+ 
+ Partei & Ergbnis 1 & Ergebnis 2 \\ 
+ AfD & 10.0 & 9.0 \\
+ Linke & 9.0 & 8.0 \\
+ Grüne & 8.0 & 9.0 \\
+ SPD & 22.0 & 23.0 \\
+ CDU/CSU & 42.0 & 42.0 \\
+ 
+
+ 
+\end{tabular}
+
+\section{Interpretation und Zusammenfassung}\label{Interpretation}
+Abschließend zu dem Projekt lässt sich sagen, dass eine Verbindung zwischen den Ressourcen möglich, aber vermutlich nicht sinnvoll, oder besonders aussagekräftig ist. \\
+Im Rahmen dieses Projektes war es nicht möglich alle Anschläge zu überprüfen und Schlussfolgerungen zu ziehen. Jedoch lässt sich im Beispiel sehen, dass es beim \ac{dax} ein leichtes Minus gab, dies jedoch auch von ganz anderen Faktoren kommen kann.\\
+Die Parteien hatte in den Umfragen nur leichte Änderungen, woraus schließen lässt, dass ein Anschlag nicht die politische Meinung zu stark beeinflusst. Dies kann vermutlich nur über einen größeren Zeitraum geschehen. Bei dem Beispiel ist sogar teilweise das Gegenteil ersichtlich. Die rechten Parteien, von denen man meinen könnte, sie könnten von Terroranschlägen profitieren, verlieren an Prozentpunkte, genauso wie linken Parteien, während Volksparteien an Prozentpunkte gewinnen.\\
+Es wurden die Ergebnisse größerer Anschläge angesehen, wie der Terroranschlag in Berlin vom 19.12.2016. Hier hat der \ac{dax}-Kurs zugelegt und die politische Meinung, repräsentiert durch die Sonntagsfrage hat sich kaum verändert.\\
+Um eine wirkliche Verbindung zwischen den Ereignissen herstellen zu können benötigt man mehr Daten, wie der Allgemeine Verlauf des \ac{dax} in den letzten Jahren, oder einen Wählertrend der vergangenen Jahre.
+
+\section{Ausblick}
+
+In dem Projekt können noch einige Verbesserungen implementiert werden.\\
+Beispielsweise wird aktuell nur mit der Konsole gearbeitet. Einen Webserver verfügt das Projekt aktuell bereits, allerdings muss noch das zugehörige Web Frontend gebaut werden. Hier kann man die Benutzereingaben besser abfragen und die Ergebnisse übersichtlicher darstellen.\\
+Wie im Kapitel \nameref{Interpretation} bereits beschrieben können auch weitere Auswertungsdaten in das Projekt mit einfließen, damit ein engerer Zusammenhang zwischen den Ressourcen beschrieben werden kann.\\
+Auch Auswertungen auf kleineren Regionen wäre denkbar. Hier gibt es allerdings Probleme mit der Repräsentation der Wirtschaft in Bundesländern, oder Landkreisen. Wahlumfragen werden in diesen Bereichen leider auch nicht regelmäßig erhoben.
 
 
-\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+\newpage
+
+\appendix 
+\section{Erstellung des Model}\label{model}
+\subsection{Terrormodel}
+\begin{lstlisting}[caption={Terrormodel}\label{lst:terrormodel},captionpos=t,language=JAVA]
+private void createTerrorModel(){
+
+        Property date = model.createProperty(ns,"happenedOn");
+        Property city = model.createProperty(ns,"inCity");
+        Property country = model.createProperty(ns,"inCountry");
+        Property fatalities = model.createProperty(ns,"hasFatalities");
+        Property injuries = model.createProperty(ns, "hasInjuries");
+
+        for (Terror t : attacks) {
+            Resource res = model.createResource(ns + t.getId());
+
+            res.addProperty(date,t.getDate().toString());
+            res.addProperty(country,t.getCountry());
+            res.addProperty(city,t.getCity());
+            res.addProperty(fatalities, String.valueOf(t.getFatalities()));
+            res.addProperty(injuries, String.valueOf(t.getInjured()));
+
+        }
+}
+\end{lstlisting}
+\subsection{Stockmodel}
+\begin{lstlisting}[caption={Stockmodel}\label{lst:stockmodel},captionpos=t,language=JAVA]
+private void createStockModel(){
+
+        Property date = model.createProperty(ns,"happenedOn");
+        Property value = model.createProperty(ns,"value");
+
+        for (Stock s : stocks) {
+            Resource res = model.createResource(ns + s.getId());
+
+            res.addProperty(date, s.getDate().toString());
+            res.addProperty(value, String.valueOf(s.getValue()));
+
+        }
+}
+\end{lstlisting}
+\subsection{Pollmodel}
+\begin{lstlisting}[caption={Pollmodel}\label{lst:pollmodel},captionpos=t,language=JAVA]
+private void createPollModel(HashMap<LocalDate, Poll> map){
+
+        Property date = model.createProperty(ns,"happenedOn");
+        Property partyName = model.createProperty(ns,"partyName");
+        Property partyPercent = model.createProperty(ns,"partyPercent");
+        Property outcomes = model.createProperty(ns,"outcomes");
 
 
-\section{Interpretation und Zusammenfassung}
+        for (Map.Entry<LocalDate, Poll> entry: map.entrySet()) {
+            Resource poll = model.createResource(ns + entry.getKey().toString());
+            poll.addProperty(date, String.valueOf(entry.getKey()));
 
-\vspace{0.5cm}\textcolor{blue}{\textbf{Es handelt sich hier um ein Muster, das Dokument ist daher unvollständig...}}
+            for(Party p : entry.getValue().getOutcomes()){
+                Resource party = model.createResource(ns + entry.getKey().toString()+p.getName());
 
-\bibliographystyle{alpha}
-\bibliography{ProjektdokumentationSW}
+                party.addProperty(partyName, p.getName());
+                party.addProperty(partyPercent, String.valueOf(p.getPercent()));
+
+                poll.addProperty(outcomes, party);
+
+            }
+
+        }
+
+}
+
+
+\end{lstlisting}
+\newpage
+\nocite{*}
+\printbibliography
+
+\newpage
+\lstlistoflistings
+
+%\bibliographystyle{alpha}
+%\bibliography{ProjektdokumentationSW}
 
 
 
